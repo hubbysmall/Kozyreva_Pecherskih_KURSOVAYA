@@ -18,11 +18,9 @@ namespace STOshopModel
         [Required]
         public int ServePrice { get; set; }
 
+        public int MyPriceAndParts { get; set; }// общая (работа+запчасти)
+
         [ForeignKey("ServeId")]
-        public virtual List<Order> Orders { get; set; }
-
-
-        [ForeignKey("PartId")]
         public virtual List<Serve_Part> Serve_Parts { get; set; }
     }
 }

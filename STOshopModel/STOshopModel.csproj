@@ -46,9 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin.cs" />
     <Compile Include="Buy.cs" />
     <Compile Include="BuyStatus.cs" />
+    <Compile Include="Buy_Serve.cs" />
     <Compile Include="Client.cs" />
+    <Compile Include="Executor.cs" />
     <Compile Include="Hall.cs" />
     <Compile Include="Hall_Part.cs" />
     <Compile Include="Order.cs" />

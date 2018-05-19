@@ -24,9 +24,5 @@ namespace STOshopModel
 
         [Required]
         public string ClientPassword { get; set; }
-
-        [Required]
-        public bool ClientAccess { get; set; }
-
     }
 }

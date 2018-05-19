@@ -14,6 +14,8 @@ namespace STOshopModel
 
         public int PartId { get; set; }
 
+        public int HallId { get; set; }
+
         public int Count { get; set; }
 
         public virtual Order Order { get; set; }

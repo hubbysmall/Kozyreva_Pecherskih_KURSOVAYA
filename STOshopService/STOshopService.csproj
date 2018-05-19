@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8BF62506-3192-4B3F-A88E-4E0AD946F062}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>STOshopService</RootNamespace>
+    <AssemblyName>STOshopService</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BindingModels\AdminBindingModel.cs" />
+    <Compile Include="BindingModels\BuyBindingModel.cs" />
+    <Compile Include="BindingModels\Buy_ServeBindingModel.cs" />
+    <Compile Include="BindingModels\ClientBindingModel.cs" />
+    <Compile Include="BindingModels\ExecutorBindingModel.cs" />
+    <Compile Include="BindingModels\HallBindingModel.cs" />
+    <Compile Include="BindingModels\Hall_PartBindingModel.cs" />
+    <Compile Include="BindingModels\OrderBindingModel.cs" />
+    <Compile Include="BindingModels\Order_PartBindingModel.cs" />
+    <Compile Include="BindingModels\PartBindingModel.cs" />
+    <Compile Include="BindingModels\ServeBindingModel.cs" />
+    <Compile Include="BindingModels\Serve_PartBindingModel.cs" />
+    <Compile Include="Interfaces\IExecutorService.cs" />
+    <Compile Include="Interfaces\IHallService.cs" />
+    <Compile Include="Interfaces\IMain_Order_Service.cs" />
+    <Compile Include="Interfaces\IPartService.cs" />
+    <Compile Include="Interfaces\IServeService.cs" />
+    <Compile Include="Migrations\201805181154202_InitialCreate.cs" />
+    <Compile Include="Migrations\201805181154202_InitialCreate.Designer.cs">
+      <DependentUpon>201805181154202_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805181719582_FirstMigration.cs" />
+    <Compile Include="Migrations\201805181719582_FirstMigration.Designer.cs">
+      <DependentUpon>201805181719582_FirstMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805181830451_FirstMigration1.cs" />
+    <Compile Include="Migrations\201805181830451_FirstMigration1.Designer.cs">
+      <DependentUpon>201805181830451_FirstMigration1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805181916537_FirstMigration2.cs" />
+    <Compile Include="Migrations\201805181916537_FirstMigration2.Designer.cs">
+      <DependentUpon>201805181916537_FirstMigration2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="realizationDB\Main_Order_ServiceDB.cs" />
+    <Compile Include="realizationDB\PartServiceDB.cs" />
+    <Compile Include="realizationDB\ServeServiceDB.cs" />
+    <Compile Include="STOshopDBContext.cs" />
+    <Compile Include="ViewModels\AdminViewModel.cs" />
+    <Compile Include="ViewModels\BuyViewModel.cs" />
+    <Compile Include="ViewModels\Buy_ServeViewModel.cs" />
+    <Compile Include="ViewModels\ClientViewModel.cs" />
+    <Compile Include="ViewModels\ExecutorViewModel.cs" />
+    <Compile Include="ViewModels\HallViewModel.cs" />
+    <Compile Include="ViewModels\Hall__PartViewModel.cs" />
+    <Compile Include="ViewModels\OrderViewModel.cs" />
+    <Compile Include="ViewModels\Order_PartViewModel.cs" />
+    <Compile Include="ViewModels\PartViewModel.cs" />
+    <Compile Include="ViewModels\ServeViewModel.cs" />
+    <Compile Include="ViewModels\Serve_PartViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\STOshopModel\STOshopModel.csproj">
+      <Project>{a01b7104-8837-43cd-98b7-791812d13767}</Project>
+      <Name>STOshopModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201805181154202_InitialCreate.resx">
+      <DependentUpon>201805181154202_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805181719582_FirstMigration.resx">
+      <DependentUpon>201805181719582_FirstMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805181830451_FirstMigration1.resx">
+      <DependentUpon>201805181830451_FirstMigration1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805181916537_FirstMigration2.resx">
+      <DependentUpon>201805181916537_FirstMigration2.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

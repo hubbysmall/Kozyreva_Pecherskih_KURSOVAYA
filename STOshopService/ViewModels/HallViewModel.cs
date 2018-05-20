@@ -13,6 +13,6 @@ namespace STOshopService.ViewModels
 
         public string HallName { get; set; }
 
-        public List<Hall_Part> Hall_Parts { get; set; }
+        public List<Hall__PartViewModel> Hall_Parts { get; set; }
     }
 }

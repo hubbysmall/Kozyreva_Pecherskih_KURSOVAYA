@@ -35,6 +35,8 @@ namespace STOshopView
           
             currentContainer.RegisterType<IMain_Order_Service, Main_Order_ServiceDB>(new HierarchicalLifetimeManager());
 
+            currentContainer.RegisterType<IHallService, HallServiceDB>(new HierarchicalLifetimeManager());
+
             return currentContainer;
         }
     }

@@ -65,18 +65,28 @@ namespace STOshopService.realizationDB
             {
                 throw new Exception("Уже есть компонент с таким названием");
             }
+            // НЕ ЗАБЫТЬ ! ПРИ БОБАВЛЕНИИ ИЛИ АПДЕЙТЕЙТЕ ЗАПЧАСТИ ОНА (ЕЁ НОМИНАЛ С КАУНТ=0) ДОЛЖНА ДОБАВИТЬСЯ ВО ВСЕ HALLS!!!!!!!!!!!!!!!!!!!!!!!! 
             context.Parts.Add(new Part
             {
                 PartName = model.PartName,
                 PartPrice = model.PartPrice
             });
+            // не забыла
+            foreach (Hall hall in context.Halls) {
+                context.Hall_Parts.Add(new Hall_Part
+                {
+                    HallId = hall.Id,
+                    PartId = element.Id,
+                    Count = 0        
+                });
+            }
             context.SaveChanges();
 
         }
 
         public void UpdPart(PartBindingModel model)
         {
-            Part element = context.Parts.FirstOrDefault(rec =>
+           Part element = context.Parts.FirstOrDefault(rec =>
                                         rec.PartName == model.PartName && rec.Id != model.Id);
             if (element != null)
             {

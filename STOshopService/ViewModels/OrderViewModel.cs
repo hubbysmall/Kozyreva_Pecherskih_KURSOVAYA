@@ -15,7 +15,7 @@ namespace STOshopService.ViewModels
 
         public string AdminName { get; set; }
 
-        public List<Order_Part> Order_Parts { get; set; }
+        public List<Order_PartViewModel> Order_Parts { get; set; }
 
         public decimal TotalSum { get; set; }
 

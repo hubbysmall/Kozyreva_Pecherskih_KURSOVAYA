@@ -16,6 +16,8 @@ namespace STOshopService.ViewModels
 
         public string PartName { get; set; }
 
+        public string HallName { get; set; }
+
         public int PartCount { get; set; }
     }
 }

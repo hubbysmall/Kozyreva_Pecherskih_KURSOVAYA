@@ -14,7 +14,7 @@ namespace STOshopService.BindingModels
 
         public string AdminName { get; set; }
 
-        public int PartId { get; set; }
+        //public int PartId { get; set; }
 
         public int TotalCount { get; set; }
 

@@ -43,5 +43,17 @@ namespace STOshopView
             form.ShowDialog();
 
         }
+
+        private void контрольСкладовToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormShowExhaust_MakeOrder>();
+            form.ShowDialog();
+        }
+
+        private void складыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormHalls>();
+            form.ShowDialog();
+        }
     }
 }

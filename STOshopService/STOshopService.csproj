@@ -79,8 +79,17 @@
     <Compile Include="Migrations\201805181916537_FirstMigration2.Designer.cs">
       <DependentUpon>201805181916537_FirstMigration2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805201139011_FirstMigration3.cs" />
+    <Compile Include="Migrations\201805201139011_FirstMigration3.Designer.cs">
+      <DependentUpon>201805201139011_FirstMigration3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805201255009_FirstMigration4.cs" />
+    <Compile Include="Migrations\201805201255009_FirstMigration4.Designer.cs">
+      <DependentUpon>201805201255009_FirstMigration4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="realizationDB\HallServiceDB.cs" />
     <Compile Include="realizationDB\Main_Order_ServiceDB.cs" />
     <Compile Include="realizationDB\PartServiceDB.cs" />
     <Compile Include="realizationDB\ServeServiceDB.cs" />
@@ -120,6 +129,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805181916537_FirstMigration2.resx">
       <DependentUpon>201805181916537_FirstMigration2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805201139011_FirstMigration3.resx">
+      <DependentUpon>201805201139011_FirstMigration3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805201255009_FirstMigration4.resx">
+      <DependentUpon>201805201255009_FirstMigration4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

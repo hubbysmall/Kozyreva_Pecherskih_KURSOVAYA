@@ -12,11 +12,17 @@ namespace STOshopService.Interfaces
     {
         List<OrderViewModel> GetList_OrderReport(DateTime from, DateTime to);
 
-        List<HallViewModel> ShowExhaustingParts();
+        List<Hall__PartViewModel> ShowExhaustingParts();
 
         void CreateOrder_AND_PutOrderedPartsInHall(OrderBindingModel model); // все запчасти чьё количество подходит к концу
         // выполняется сразу после  CreateOrder с учетом указанного в CreateOrder
         // количества всех заказанных запчастей 
-     
+        void refillPartsRow(int id);
+
+        Hall__PartViewModel GetHall_Part(int id);
+
+        void PutOrderedPartsInHall(List<Hall_PartBindingModel> newParts);
+
+
     }
 }

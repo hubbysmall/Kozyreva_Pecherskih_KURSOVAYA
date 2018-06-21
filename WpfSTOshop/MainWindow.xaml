@@ -1,0 +1,17 @@
+﻿<Window x:Class="WpfSTOshop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfSTOshop"
+        mc:Ignorable="d"
+        Title="Авторизация" Height="327.273" Width="373.554">
+    <Grid Margin="0,0,-8,1">
+        <Label Content="Логин:" HorizontalAlignment="Left" Height="31" Margin="43,10,0,0" VerticalAlignment="Top" Width="194"/>
+        <TextBox x:Name="textBoxLogin" HorizontalAlignment="Left" Height="32" Margin="43,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="269"/>
+        <Label Content="Пароль:" HorizontalAlignment="Left" Height="31" Margin="43,81,0,0" VerticalAlignment="Top" Width="194"/>
+        <Button x:Name="buttonLogin" Content="Вход" HorizontalAlignment="Left" Height="29" Margin="124,167,0,0" VerticalAlignment="Top" Width="113" Click="buttonLogin_Click"/>
+        <Button x:Name="buttonRegistr" Content="Регистрация" HorizontalAlignment="Left" Height="29" Margin="124,210,0,0" VerticalAlignment="Top" Width="113" Click="buttonRegistr_Click"/>
+        <PasswordBox x:Name="PasswordBox" HorizontalAlignment="Left" Margin="47,110,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="265" Height="33"/>
+    </Grid>
+</Window>

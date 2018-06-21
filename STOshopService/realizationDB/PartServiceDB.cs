@@ -71,12 +71,14 @@ namespace STOshopService.realizationDB
                 PartName = model.PartName,
                 PartPrice = model.PartPrice
             });
+            context.SaveChanges();
+            int elementID = context.Parts.FirstOrDefault(rec => rec.PartName == model.PartName).Id;
             // не забыла
             foreach (Hall hall in context.Halls) {
                 context.Hall_Parts.Add(new Hall_Part
                 {
                     HallId = hall.Id,
-                    PartId = element.Id,
+                    PartId = elementID,
                     Count = 0        
                 });
             }

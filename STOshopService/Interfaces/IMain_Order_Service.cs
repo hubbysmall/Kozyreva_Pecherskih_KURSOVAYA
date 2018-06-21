@@ -23,6 +23,21 @@ namespace STOshopService.Interfaces
 
         void PutOrderedPartsInHall(List<Hall_PartBindingModel> newParts);
 
+        void SaveOrderToDoc(OrderBindingModel model, string filePAth);
+
+        void SaveOrderToExcel(OrderBindingModel model, string filePAth);
+
+        void SendEmail(string ToMailAddress, string subject, string text, string filePath);
+
+        void addNewAdmin(AdminBindingModel model);
+
+        bool checkAdminIfExist(AdminBindingModel model);
+
+        void setCurrentAdmin(AdminBindingModel model);
+
+        AdminViewModel returnCurrentAdmin();
+
+
 
     }
 }

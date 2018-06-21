@@ -15,24 +15,10 @@ namespace STOshopService.ViewModels
 
         public string ClientFIO { get; set; }
 
-        //public int ServeId { get; set; }
+        public List<Buy_ServeViewModel> Buy_Serves { get; set; }
 
-        public List<Buy_Serve> Buy_Serves { get; set; }
+        public int TotalSum { get; set; }
 
-        // public string ServeName { get; set; } не одну же услугу можно купить а несколько
-
-        public int? ExecutorId { get; set; }
-
-        public string ExecutorName { get; set; }
-
-     //   public int Count { get; set; }
-
-        public decimal TotalSum { get; set; }
-
-        public string Status { get; set; }
-
-        public string DateCreate { get; set; }
-
-        public string DateExecute { get; set; }
+        public DateTime DateCreate { get; set; }
     }
 }

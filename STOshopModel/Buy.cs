@@ -15,17 +15,11 @@ namespace STOshopModel
 
        // public int ServeId { get; set; }
 
-        public int? ExecutorId { get; set; }
-
         public int TotalCount { get; set; }
 
-        public decimal TotalSum { get; set; }
-
-        public BuyStatus Status { get; set; }
+        public int TotalSum { get; set; }
 
         public DateTime DateCreate { get; set; }
-
-        public DateTime? DateExecute { get; set; }
 
         public virtual Client Client { get; set; }
 
@@ -34,6 +28,5 @@ namespace STOshopModel
         [ForeignKey("BuyId")]
         public virtual List<Buy_Serve> Buy_Serves { get; set; }
 
-        public virtual Executor Executor { get; set; }
     }
 }

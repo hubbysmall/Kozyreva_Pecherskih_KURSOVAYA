@@ -36,7 +36,7 @@
             this.складыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.контрольСкладовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.просмотрЗаявокToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.добавитьНовыйСкладToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.просмотрРемонтовКлиентовToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,7 +46,7 @@
             this.справочникиToolStripMenuItem,
             this.контрольСкладовToolStripMenuItem,
             this.просмотрЗаявокToolStripMenuItem,
-            this.добавитьНовыйСкладToolStripMenuItem});
+            this.просмотрРемонтовКлиентовToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -68,27 +68,27 @@
             // запчастиToolStripMenuItem
             // 
             this.запчастиToolStripMenuItem.Name = "запчастиToolStripMenuItem";
-            this.запчастиToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.запчастиToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.запчастиToolStripMenuItem.Text = "Запчасти";
             this.запчастиToolStripMenuItem.Click += new System.EventHandler(this.запчастиToolStripMenuItem_Click);
             // 
             // услугиToolStripMenuItem
             // 
             this.услугиToolStripMenuItem.Name = "услугиToolStripMenuItem";
-            this.услугиToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.услугиToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.услугиToolStripMenuItem.Text = "Услуги";
             this.услугиToolStripMenuItem.Click += new System.EventHandler(this.услугиToolStripMenuItem_Click);
             // 
             // механикиToolStripMenuItem
             // 
             this.механикиToolStripMenuItem.Name = "механикиToolStripMenuItem";
-            this.механикиToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.механикиToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.механикиToolStripMenuItem.Text = "Механики";
             // 
             // складыToolStripMenuItem
             // 
             this.складыToolStripMenuItem.Name = "складыToolStripMenuItem";
-            this.складыToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.складыToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.складыToolStripMenuItem.Text = "Склады";
             this.складыToolStripMenuItem.Click += new System.EventHandler(this.складыToolStripMenuItem_Click);
             // 
@@ -104,12 +104,14 @@
             this.просмотрЗаявокToolStripMenuItem.Name = "просмотрЗаявокToolStripMenuItem";
             this.просмотрЗаявокToolStripMenuItem.Size = new System.Drawing.Size(115, 20);
             this.просмотрЗаявокToolStripMenuItem.Text = "Просмотр заявок";
+            this.просмотрЗаявокToolStripMenuItem.Click += new System.EventHandler(this.просмотрЗаявокToolStripMenuItem_Click);
             // 
-            // добавитьНовыйСкладToolStripMenuItem
+            // просмотрРемонтовКлиентовToolStripMenuItem
             // 
-            this.добавитьНовыйСкладToolStripMenuItem.Name = "добавитьНовыйСкладToolStripMenuItem";
-            this.добавитьНовыйСкладToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
-            this.добавитьНовыйСкладToolStripMenuItem.Text = "Something";
+            this.просмотрРемонтовКлиентовToolStripMenuItem.Name = "просмотрРемонтовКлиентовToolStripMenuItem";
+            this.просмотрРемонтовКлиентовToolStripMenuItem.Size = new System.Drawing.Size(187, 20);
+            this.просмотрРемонтовКлиентовToolStripMenuItem.Text = "Просмотр ремонтов клиентов";
+            this.просмотрРемонтовКлиентовToolStripMenuItem.Click += new System.EventHandler(this.просмотрРемонтовКлиентовToolStripMenuItem_Click);
             // 
             // FormMain
             // 
@@ -137,6 +139,6 @@
         private System.Windows.Forms.ToolStripMenuItem складыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem контрольСкладовToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem просмотрЗаявокToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem добавитьНовыйСкладToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem просмотрРемонтовКлиентовToolStripMenuItem;
     }
 }

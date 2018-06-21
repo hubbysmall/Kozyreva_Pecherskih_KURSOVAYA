@@ -16,6 +16,12 @@ namespace STOshopService.BindingModels
 
         public int HallId { get; set; }
 
+        public string PartName { get; set; }
+
+        public string HallName { get; set; }
+
         public int PartCount { get; set; }
+
+        public int PartPrice { get; set; }
     }
 }

@@ -47,7 +47,8 @@ namespace STOshopView
                 {
                     dataGridViewHall_Parts.DataSource = Hall_Parts;
                     dataGridViewHall_Parts.Columns[0].Visible = false;
-                    dataGridViewHall_Parts.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;               
+                    dataGridViewHall_Parts.Columns[1].Visible = false;
+                    dataGridViewHall_Parts.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;               
                    
                 }
             }
@@ -68,55 +69,137 @@ namespace STOshopView
                 {
                     Hall__PartViewModel ex = form.Model;
                     Hall_Parts[dataGridViewHall_Parts.SelectedRows[0].Cells[0].RowIndex] = form.Model;
-                    dataGridViewHall_Parts.UpdateCellValue(5, dataGridViewHall_Parts.SelectedRows[0].Cells[0].RowIndex);
+                    dataGridViewHall_Parts.UpdateCellValue(6, dataGridViewHall_Parts.SelectedRows[0].Cells[0].RowIndex);
                 }
             }
         }
 
         private void buttonMakeOrder_Click(object sender, EventArgs e)
         {
-            try
-            {
-                List<Order_PartBindingModel> partsForOrder = new List<Order_PartBindingModel>();
-                List<Hall_PartBindingModel> partsInHall = new List<Hall_PartBindingModel>();
-                for (int i = 0; i < Hall_Parts.Count; ++i)
-                {
-                    if (Hall_Parts[i].PartCount > 0) {
-
-                        partsForOrder.Add(new Order_PartBindingModel
-                        {
-                            Id = Hall_Parts[i].Id,
-                            HallId = Hall_Parts[i].HallId,
-                            PartId = Hall_Parts[i].PartId,
-                            PartCount = Hall_Parts[i].PartCount
-                        });
-                        partsInHall.Add(new Hall_PartBindingModel
-                        {
-                            Id = Hall_Parts[i].Id,
-                            HallId = Hall_Parts[i].HallId,
-                            PartId = Hall_Parts[i].PartId,
-                            Count = Hall_Parts[i].PartCount
-                        });
-                    }                  
+           
+                string format = "";
+                if (listBoxFormat.SelectedIndices.Count ==0) {
+                    MessageBox.Show("Выбирете формат заявки", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                service.PutOrderedPartsInHall(partsInHall);
-                service.CreateOrder_AND_PutOrderedPartsInHall(new OrderBindingModel
+                else {
+                    format = listBoxFormat.SelectedItem.ToString();
+                try
                 {
-                    AdminId = 5,
-                    AdminName = "TestNameAdmin",
-                    TotalCount = 999999,
-                    TotalSum = 66666666,
-                    Order_Parts = partsForOrder         
-                });
-                
-                MessageBox.Show("Сохранение прошло успешно", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                DialogResult = DialogResult.OK;
-                Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+
+                    List<Order_PartBindingModel> partsForOrder = new List<Order_PartBindingModel>();
+                    List<Hall_PartBindingModel> partsInHall = new List<Hall_PartBindingModel>();
+                    int totCount = 0;
+                    int totSum = 0;
+                    for (int i = 0; i < Hall_Parts.Count; ++i)
+                    {
+                        if (Hall_Parts[i].PartCount > 0)
+                        {
+
+                            partsForOrder.Add(new Order_PartBindingModel
+                            {
+                                Id = Hall_Parts[i].Id,
+                                HallId = Hall_Parts[i].HallId,
+                                PartId = Hall_Parts[i].PartId,
+                                PartCount = Hall_Parts[i].PartCount,
+                                PartName = Hall_Parts[i].PartName,
+                                HallName = Hall_Parts[i].HallName,
+                                PartPrice = Hall_Parts[i].PartPrice
+                            });
+                            totCount = totCount + Hall_Parts[i].PartCount;
+                            totSum = totSum + Hall_Parts[i].PartCount * Hall_Parts[i].PartPrice;
+                            partsInHall.Add(new Hall_PartBindingModel
+                            {
+                                Id = Hall_Parts[i].Id,
+                                HallId = Hall_Parts[i].HallId,
+                                PartId = Hall_Parts[i].PartId,
+                                Count = Hall_Parts[i].PartCount
+                            });
+                        }
+                    }
+                    service.PutOrderedPartsInHall(partsInHall);
+
+                    service.CreateOrder_AND_PutOrderedPartsInHall(new OrderBindingModel
+                    {
+                        AdminId = 5,
+                        AdminName = "TestNameAdmin",
+                        TotalCount = totCount,
+                        TotalSum = totSum,
+                        Order_Parts = partsForOrder
+                    });
+
+
+                    var form = Container.Resolve<FormPutDealerEmail>();
+                    if (form.ShowDialog() == DialogResult.OK)
+                    {
+                        SaveFileDialog sfd = new SaveFileDialog();
+                        if (format.Equals("Word"))
+                        {
+                            sfd = new SaveFileDialog
+                            {
+                                Filter = "doc|*.doc|docx|*.docx"
+                            };
+                            if (sfd.ShowDialog() == DialogResult.OK)
+                            {
+                                try
+                                {
+                                    service.SaveOrderToDoc(new OrderBindingModel
+                                    {
+                                        AdminId = 5,
+                                        AdminName = "TestNameAdmin",
+                                        TotalCount = totCount,
+                                        TotalSum = totSum,
+                                        Order_Parts = partsForOrder
+                                    }, sfd.FileName);
+                                    MessageBox.Show("Doc сформирован", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show(ex.Message, "Ошибка формирования документа", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                            }
+                            string dealerMail = form.Model;
+                            service.SendEmail(dealerMail, "Накладная", "Прикреплённый файл", sfd.FileName);
+                        }
+                        else if (format.Equals("Excel"))
+                        {
+                            sfd = new SaveFileDialog
+                            {
+                                Filter = "xls|*.xls|xlsx|*.xlsx"
+                            };
+                            if (sfd.ShowDialog() == DialogResult.OK)
+                            {
+                                try
+                                {
+                                    service.SaveOrderToExcel(new OrderBindingModel
+                                    {
+                                        AdminId = 5,
+                                        AdminName = "TestNameAdmin",
+                                        TotalCount = totCount,
+                                        TotalSum = totSum,
+                                        Order_Parts = partsForOrder
+                                    }, sfd.FileName);
+                                    MessageBox.Show("Excel сформирован", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show(ex.Message, "Ошибка формирования документа", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                            }
+                            string dealerMail = form.Model;
+                            service.SendEmail(dealerMail, "Накладная", "Прикреплённый файл", sfd.FileName);
+                        }
+
+                    }
+
+                    MessageBox.Show("Сохранение прошло успешно", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DialogResult = DialogResult.OK;
+                    Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }    
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)

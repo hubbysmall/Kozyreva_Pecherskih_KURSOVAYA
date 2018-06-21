@@ -33,6 +33,7 @@
             this.buttonMakeOrder = new System.Windows.Forms.Button();
             this.buttonAddHall_Parts = new System.Windows.Forms.Button();
             this.buttonUpdatePartsList = new System.Windows.Forms.Button();
+            this.listBoxFormat = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHall_Parts)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,7 +52,7 @@
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(560, 116);
+            this.buttonCancel.Location = new System.Drawing.Point(560, 152);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 16;
@@ -62,7 +63,7 @@
             // 
             // buttonMakeOrder
             // 
-            this.buttonMakeOrder.Location = new System.Drawing.Point(560, 51);
+            this.buttonMakeOrder.Location = new System.Drawing.Point(560, 103);
             this.buttonMakeOrder.Name = "buttonMakeOrder";
             this.buttonMakeOrder.Size = new System.Drawing.Size(75, 43);
             this.buttonMakeOrder.TabIndex = 15;
@@ -82,7 +83,7 @@
             // 
             // buttonUpdatePartsList
             // 
-            this.buttonUpdatePartsList.Location = new System.Drawing.Point(560, 158);
+            this.buttonUpdatePartsList.Location = new System.Drawing.Point(560, 193);
             this.buttonUpdatePartsList.Name = "buttonUpdatePartsList";
             this.buttonUpdatePartsList.Size = new System.Drawing.Size(75, 36);
             this.buttonUpdatePartsList.TabIndex = 17;
@@ -91,11 +92,23 @@
             this.buttonUpdatePartsList.UseVisualStyleBackColor = true;
             this.buttonUpdatePartsList.Click += new System.EventHandler(this.buttonUpdatePartsList_Click);
             // 
+            // listBoxFormat
+            // 
+            this.listBoxFormat.FormattingEnabled = true;
+            this.listBoxFormat.Items.AddRange(new object[] {
+            "Excel",
+            "Word"});
+            this.listBoxFormat.Location = new System.Drawing.Point(560, 51);
+            this.listBoxFormat.Name = "listBoxFormat";
+            this.listBoxFormat.Size = new System.Drawing.Size(75, 43);
+            this.listBoxFormat.TabIndex = 18;
+            // 
             // FormShowExhaust_MakeOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(661, 412);
+            this.Controls.Add(this.listBoxFormat);
             this.Controls.Add(this.buttonUpdatePartsList);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonMakeOrder);
@@ -116,5 +129,6 @@
         private System.Windows.Forms.Button buttonMakeOrder;
         private System.Windows.Forms.Button buttonAddHall_Parts;
         private System.Windows.Forms.Button buttonUpdatePartsList;
+        private System.Windows.Forms.ListBox listBoxFormat;
     }
 }

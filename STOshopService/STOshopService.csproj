@@ -36,6 +36,19 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <Private>True</Private>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Word.15.0.4797.1003\lib\net20\Microsoft.Office.Interop.Word.dll</HintPath>
+      <Private>True</Private>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -56,12 +69,19 @@
     <Compile Include="BindingModels\OrderBindingModel.cs" />
     <Compile Include="BindingModels\Order_PartBindingModel.cs" />
     <Compile Include="BindingModels\PartBindingModel.cs" />
+    <Compile Include="BindingModels\ReportBindingModel.cs" />
+    <Compile Include="BindingModels\ReportClientBindingModel.cs" />
     <Compile Include="BindingModels\ServeBindingModel.cs" />
     <Compile Include="BindingModels\Serve_PartBindingModel.cs" />
+    <Compile Include="Interfaces\IBuyerServiceLimited.cs" />
+    <Compile Include="Interfaces\IClientService.cs" />
     <Compile Include="Interfaces\IExecutorService.cs" />
     <Compile Include="Interfaces\IHallService.cs" />
+    <Compile Include="Interfaces\IMainClientService.cs" />
     <Compile Include="Interfaces\IMain_Order_Service.cs" />
     <Compile Include="Interfaces\IPartService.cs" />
+    <Compile Include="Interfaces\IReportClientService.cs" />
+    <Compile Include="Interfaces\IReportService.cs" />
     <Compile Include="Interfaces\IServeService.cs" />
     <Compile Include="Migrations\201805181154202_InitialCreate.cs" />
     <Compile Include="Migrations\201805181154202_InitialCreate.Designer.cs">
@@ -87,16 +107,46 @@
     <Compile Include="Migrations\201805201255009_FirstMigration4.Designer.cs">
       <DependentUpon>201805201255009_FirstMigration4.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805291540006_REport_step.cs" />
+    <Compile Include="Migrations\201805291540006_REport_step.Designer.cs">
+      <DependentUpon>201805291540006_REport_step.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805291653584_REport_step2.cs" />
+    <Compile Include="Migrations\201805291653584_REport_step2.Designer.cs">
+      <DependentUpon>201805291653584_REport_step2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806151536399_BuyLimited.cs" />
+    <Compile Include="Migrations\201806151536399_BuyLimited.Designer.cs">
+      <DependentUpon>201806151536399_BuyLimited.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806160032017_admin1.cs" />
+    <Compile Include="Migrations\201806160032017_admin1.Designer.cs">
+      <DependentUpon>201806160032017_admin1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="realizationDB\BuyerServiceLimitedDB.cs" />
+    <Compile Include="realizationDB\ClientServiceDB.cs" />
     <Compile Include="realizationDB\HallServiceDB.cs" />
+    <Compile Include="realizationDB\MainClientServiceDB.cs" />
     <Compile Include="realizationDB\Main_Order_ServiceDB.cs" />
     <Compile Include="realizationDB\PartServiceDB.cs" />
+    <Compile Include="realizationDB\RandomNotRepeat.cs" />
+    <Compile Include="realizationDB\ReportClientServiceDB.cs" />
+    <Compile Include="realizationDB\ReportServiceDB.cs" />
     <Compile Include="realizationDB\ServeServiceDB.cs" />
     <Compile Include="STOshopDBContext.cs" />
+    <Compile Include="ViewModels\AdminOrdersViewModel.cs" />
     <Compile Include="ViewModels\AdminViewModel.cs" />
+    <Compile Include="ViewModels\BuyerBuysViewModel.cs" />
     <Compile Include="ViewModels\BuyViewModel.cs" />
     <Compile Include="ViewModels\Buy_ServeViewModel.cs" />
+    <Compile Include="ViewModels\ClientBuysModel.cs" />
     <Compile Include="ViewModels\ClientViewModel.cs" />
     <Compile Include="ViewModels\ExecutorViewModel.cs" />
     <Compile Include="ViewModels\HallViewModel.cs" />
@@ -104,12 +154,16 @@
     <Compile Include="ViewModels\OrderViewModel.cs" />
     <Compile Include="ViewModels\Order_PartViewModel.cs" />
     <Compile Include="ViewModels\PartViewModel.cs" />
+    <Compile Include="ViewModels\ServePartsLoadModel.cs" />
     <Compile Include="ViewModels\ServeViewModel.cs" />
     <Compile Include="ViewModels\Serve_PartViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
+    <None Include="Resources\TIMCYR.TTF" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\STOshopModel\STOshopModel.csproj">
@@ -135,6 +189,22 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805201255009_FirstMigration4.resx">
       <DependentUpon>201805201255009_FirstMigration4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805291540006_REport_step.resx">
+      <DependentUpon>201805291540006_REport_step.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805291653584_REport_step2.resx">
+      <DependentUpon>201805291653584_REport_step2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806151536399_BuyLimited.resx">
+      <DependentUpon>201806151536399_BuyLimited.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806160032017_admin1.resx">
+      <DependentUpon>201806160032017_admin1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

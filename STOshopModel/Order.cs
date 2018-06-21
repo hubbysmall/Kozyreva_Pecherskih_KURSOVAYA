@@ -17,7 +17,7 @@ namespace STOshopModel
 
         public int TotalCount { get; set; }
 
-        public decimal TotalSum { get; set; }
+        public int TotalSum { get; set; }
 
         public DateTime DateCreate { get; set; }
 

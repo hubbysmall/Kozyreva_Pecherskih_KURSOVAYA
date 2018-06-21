@@ -55,5 +55,17 @@ namespace STOshopView
             var form = Container.Resolve<FormHalls>();
             form.ShowDialog();
         }
+
+        private void просмотрЗаявокToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormLookAdminOrders>();
+            form.ShowDialog();
+        }
+
+        private void просмотрРемонтовКлиентовToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormLookBuyerBuys>();
+            form.ShowDialog();
+        }
     }
 }

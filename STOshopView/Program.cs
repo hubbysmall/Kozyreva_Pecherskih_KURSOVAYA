@@ -23,7 +23,7 @@ namespace STOshopView
             var container = BuildUnityContainer();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(container.Resolve<FormMain>());
+            Application.Run(container.Resolve<FormEnter>());
         }
         public static IUnityContainer BuildUnityContainer()
         {
@@ -36,6 +36,10 @@ namespace STOshopView
             currentContainer.RegisterType<IMain_Order_Service, Main_Order_ServiceDB>(new HierarchicalLifetimeManager());
 
             currentContainer.RegisterType<IHallService, HallServiceDB>(new HierarchicalLifetimeManager());
+
+            currentContainer.RegisterType<IReportService, ReportServiceDB>(new HierarchicalLifetimeManager());
+
+            currentContainer.RegisterType<IBuyerServiceLimited, BuyerServiceLimitedDB>(new HierarchicalLifetimeManager());
 
             return currentContainer;
         }

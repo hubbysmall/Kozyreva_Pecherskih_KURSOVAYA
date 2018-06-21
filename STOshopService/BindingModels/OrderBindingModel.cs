@@ -18,7 +18,7 @@ namespace STOshopService.BindingModels
 
         public int TotalCount { get; set; }
 
-        public decimal TotalSum { get; set; }
+        public int TotalSum { get; set; }
 
         public List<Order_PartBindingModel> Order_Parts { get; set; }
     }

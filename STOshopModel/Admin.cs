@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace STOshopModel
 {
-    class Admin
+    public class Admin
     {
         public int Id { get; set; }
 
@@ -21,7 +21,7 @@ namespace STOshopModel
         [Required]
         public string AdminPassword { get; set; }
 
-        [ForeignKey("AdminId")]
-        public virtual List<Order> Orders { get; set; }
+        //[ForeignKey("AdminId")]
+        //public virtual List<Order> Orders { get; set; }
     }
 }

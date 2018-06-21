@@ -20,11 +20,15 @@ namespace STOshopService
             var ensureDLLIsCopied = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
         }
 
+        public virtual DbSet<Admin> Admins { get; set; }
+
         public virtual DbSet<Client> Clients { get; set; }
 
         public virtual DbSet<Part> Parts { get; set; }
 
         public virtual DbSet<Buy> Buys { get; set; }
+
+        public virtual DbSet<Buy_Serve> Buy_Serves { get; set; }
 
         public virtual DbSet<Order> Orders { get; set; }
 
@@ -37,5 +41,6 @@ namespace STOshopService
         public virtual DbSet<Hall_Part> Hall_Parts { get; set; }
 
         public virtual DbSet<Order_Part> Order_Parts { get; set; }
+
     }
 }

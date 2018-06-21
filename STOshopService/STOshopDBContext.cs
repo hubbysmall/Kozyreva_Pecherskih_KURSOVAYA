@@ -26,6 +26,8 @@ namespace STOshopService
 
         public virtual DbSet<Buy> Buys { get; set; }
 
+        public virtual DbSet<Buy_Serve> Buy_Serves { get; set; }
+
         public virtual DbSet<Order> Orders { get; set; }
 
         public virtual DbSet<Serve> Serves { get; set; }

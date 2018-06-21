@@ -1,0 +1,27 @@
+﻿<Window x:Class="WpfSTOshop.ClientBuysWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfSTOshop"
+        mc:Ignorable="d"
+         Title="ClientBuysWindow" Height="325.62" Width="571.074">
+    <Grid Margin="0,0,0,-1">
+        <DatePicker x:Name="dateTimePickerFrom" HorizontalAlignment="Left" Height="29" Margin="32,9,0,0" VerticalAlignment="Top" Width="109"/>
+        <DatePicker x:Name="dateTimePickerTo" HorizontalAlignment="Left" Height="29" Margin="177,10,0,0" VerticalAlignment="Top" Width="108"/>
+        <Button x:Name="buttonMake" Content="Сформировать" HorizontalAlignment="Left" Height="29" Margin="299,10,0,0" VerticalAlignment="Top" Width="90" Click="buttonMake_Click"/>
+        <DataGrid x:Name="dataGridView" HorizontalAlignment="Left" Height="252" Margin="0,44,0,0" VerticalAlignment="Top" Width="563" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Дата создания" Binding="{Binding DateCreate}" Width="110" />
+                <DataGridTextColumn Header="Услуга" Binding="{Binding Serve}" Width="150" />
+                <DataGridTextColumn Header="Запчасть" Binding="{Binding Part}" Width="140" />
+                <DataGridTextColumn Header="Сумма" Binding="{Binding Sum}" Width="110" />
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="С" HorizontalAlignment="Left" Margin="10,9,0,0" VerticalAlignment="Top"/>
+        <Label Content="ПО" HorizontalAlignment="Left" Height="25" Margin="146,9,0,0" VerticalAlignment="Top" Width="31"/>
+        <Button x:Name="buttonSend" Content="Отправить на почту (pdf)" HorizontalAlignment="Left" Height="27" Margin="402,11,0,0" VerticalAlignment="Top" Width="151" Click="buttonSend_Click"/>
+
+    </Grid>
+</Window>

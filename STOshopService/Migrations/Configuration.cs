@@ -10,7 +10,6 @@ namespace STOshopService.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "STOshopService.STOshopDBContext";
         }
 
         protected override void Seed(STOshopService.STOshopDBContext context)

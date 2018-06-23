@@ -2,21 +2,10 @@
 using STOshopService.Interfaces;
 using STOshopService.ViewModels;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
 using System.Net;
 using System.Net.Mail;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using Unity;
 using Unity.Attributes;
 
@@ -50,7 +39,7 @@ namespace WpfSTOshop
             }
             try
             {
-                ObservableCollection<Class1> collection = new ObservableCollection<Class1>();
+                ObservableCollection<TableClientBuys> collection = new ObservableCollection<TableClientBuys>();
                 collection.Clear();
                 dataGridView.ItemsSource = collection;
                 var dict = service.GetClientBuys(new ReportClientBindingModel
@@ -62,17 +51,17 @@ namespace WpfSTOshop
                 {
                     foreach (var buy in dict)
                     {
-                        collection.Add(new Class1() { DateCreate = buy.DateCreate.ToString(), Serve = "", Part = "", Sum = "" });
+                        collection.Add(new TableClientBuys() { DateCreate = buy.DateCreate.ToString(), Serve = "", Part = "", Sum = "" });
                         foreach (var serve in buy.Serve_Parts)
                         {
-                            collection.Add(new Class1() { DateCreate = "", Serve = serve.Item1, Part = "", Sum = "" });
+                            collection.Add(new TableClientBuys() { DateCreate = "", Serve = serve.Item1, Part = "", Sum = "" });
                             foreach (var servePart in serve.Item2)
                             {
-                                collection.Add(new Class1() { DateCreate = "", Serve = "", Part = servePart.PartName, Sum = "" });
+                                collection.Add(new TableClientBuys() { DateCreate = "", Serve = "", Part = servePart.PartName, Sum = "" });
                             }
-                            collection.Add(new Class1() { DateCreate = "", Serve = "Стоимость услуги", Part = "", Sum = serve.Item3.ToString() });
+                            collection.Add(new TableClientBuys() { DateCreate = "", Serve = "Стоимость услуги", Part = "", Sum = serve.Item3.ToString() });
                         }
-                        collection.Add(new Class1() { DateCreate = "", Serve = "", Part = "", Sum = "" });
+                        collection.Add(new TableClientBuys() { DateCreate = "", Serve = "", Part = "", Sum = "" });
                     }
                 }
             }
@@ -93,7 +82,7 @@ namespace WpfSTOshop
                     DateTo = dateTimePickerTo.SelectedDate
                 }, client.Id);
                 String mailClient = client.ClientMail;
-                MailAddress fromMailAddress = new MailAddress("LabWork15kafIS@gmail.com", "Anastasiya");
+                MailAddress fromMailAddress = new MailAddress("LabWork15kafIS@gmail.com", "Me");
                 MailAddress toAddress = new MailAddress(mailClient, "Like"); //кому отправлять
 
                 using (MailMessage mailMessage = new MailMessage(fromMailAddress, toAddress))
@@ -123,7 +112,7 @@ namespace WpfSTOshop
 
         }
     }
-    public class Class1
+    public class TableClientBuys
     {
         public string DateCreate { get; set; }
 

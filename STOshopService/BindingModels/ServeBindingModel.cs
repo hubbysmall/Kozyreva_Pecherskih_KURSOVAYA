@@ -1,14 +1,11 @@
-﻿using STOshopModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace STOshopService.BindingModels
 {
+
     public class ServeBindingModel
     {
+
         public int Id { get; set; }
 
         public string ServeName { get; set; }
@@ -17,7 +14,6 @@ namespace STOshopService.BindingModels
 
         public int MyPriceAndParts { get; set; } // будет высчитываться с учетом задействованных запчастей и ценой самой услуги автоматическм
         // MyPriceAndParts -- это и есть финальная цена услуги
-
         public List<Serve_PartBindingModel> Serve_Parts { get; set; }
     }
 }

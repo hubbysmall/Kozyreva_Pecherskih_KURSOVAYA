@@ -35,13 +35,7 @@ namespace WpfSTOshop
             currentContainer.RegisterType<IClientService, ClientServiceDB>(new HierarchicalLifetimeManager());
             currentContainer.RegisterType<IMainClientService, MainClientServiceDB>(new HierarchicalLifetimeManager());
             currentContainer.RegisterType<IReportClientService, ReportClientServiceDB>(new HierarchicalLifetimeManager());
-            /*
-            currentContainer.RegisterType<IDishService, DishServiceList>(new HierarchicalLifetimeManager());
-            currentContainer.RegisterType<IChefService, ChefServiceList>(new HierarchicalLifetimeManager());
-            currentContainer.RegisterType<IMenuService, MenuServiceList>(new HierarchicalLifetimeManager());
-            currentContainer.RegisterType<IKitchenService, KitchenServiceList>(new HierarchicalLifetimeManager());
-            currentContainer.RegisterType<IMainService, MainServiceList>(new HierarchicalLifetimeManager());
-            */
+            currentContainer.RegisterType<IBackupService, BackupServiceDB>(new HierarchicalLifetimeManager());
 
             return currentContainer;
         }

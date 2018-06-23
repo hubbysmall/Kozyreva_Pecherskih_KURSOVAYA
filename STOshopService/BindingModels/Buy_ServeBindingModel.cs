@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Runtime.Serialization;
 
 namespace STOshopService.BindingModels
 {
@@ -13,7 +9,5 @@ namespace STOshopService.BindingModels
         public int BuyId { get; set; }
 
         public int ServeId { get; set; }
-
-        //public int Count { get; set; } одна услуга за раз по умолч.
     }
 }

@@ -1,9 +1,11 @@
-﻿using STOshopService.BindingModels;
+﻿using Microsoft.Win32;
+using STOshopService.BindingModels;
 using STOshopService.Interfaces;
 using STOshopService.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,7 +24,10 @@ namespace WpfSTOshop
         public int Id { set { id = value; } }
 
         private readonly IMainClientService service;
+
         private readonly IReportClientService reportService;
+
+        private readonly IBackupService backupService;
 
         private int? id;
 
@@ -32,7 +37,7 @@ namespace WpfSTOshop
         ObservableCollection<ServeViewModel> listChoice;
 
 
-        public MenuWindow(int idClient, IMainClientService service, IReportClientService reportService)
+        public MenuWindow(int idClient, IMainClientService service, IReportClientService reportService, IBackupService backupService)
         {
             InitializeComponent();
             this.service = service;
@@ -41,6 +46,7 @@ namespace WpfSTOshop
             this.idClient = idClient;
             client = service.getClient(idClient);
             TextBoxClientName.Text += client.ClientFIO;
+            this.backupService = backupService;
             Loaded += MenuWindow_Load;
         }
 
@@ -215,6 +221,29 @@ namespace WpfSTOshop
             this.Close();
             if (form.ShowDialog() == true)
             { }
+        }
+
+        private void buttonSaveDB_Click(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.SaveFileDialog sfd = new Microsoft.Win32.SaveFileDialog
+            {
+                Filter = "Json files (*.json)|*.json|Text files (*.txt)|*.txt"
+            };
+            if (sfd.ShowDialog() == true)
+            {
+                try
+                {
+                    backupService.SaveJSON(new BackupBindingModel
+                    {
+                        FileName = sfd.FileName
+                    });
+                    MessageBox.Show("Выполнено", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
     }
 }

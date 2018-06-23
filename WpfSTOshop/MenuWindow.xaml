@@ -30,6 +30,7 @@
         <Button x:Name="buttonExit" Content="Выход" Grid.Column="2" HorizontalAlignment="Left" Margin="78,419,0,0" VerticalAlignment="Top" Width="75" Click="buttonExit_Click"/>
         <Label Content="Итоговая сумма:" HorizontalAlignment="Left" Margin="437,358,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="TextBoxSum" HorizontalAlignment="Left" Height="23" Margin="542,361,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" IsEnabled="False" BorderBrush="Black"/>
+        <Button x:Name="buttonSaveDB" Content="Сохранить бд" HorizontalAlignment="Left" Height="25" Margin="298,413,0,0" VerticalAlignment="Top" Width="126" Click="buttonSaveDB_Click"/>
 
     </Grid>
 </Window>

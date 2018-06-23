@@ -17,7 +17,5 @@ namespace STOshopService.ViewModels
         public string ServeName { get; set; }
 
         public List<Serve_PartViewModel> Serve_Parts { get; set; }
-
-        // public int Count { get; set; }
     }
 }

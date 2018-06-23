@@ -12,9 +12,7 @@ namespace STOshopService.Interfaces
     {
         List<ClientViewModel> GetList();
 
-        //ClientViewModel GetElement(int id);
-
-        ClientBindingModel GetElement(string id);
+        ClientBindingModel GetElement(string login);
 
         void AddElement(ClientBindingModel model);
 

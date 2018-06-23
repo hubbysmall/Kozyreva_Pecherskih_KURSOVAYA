@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfSTOshop"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Авторизация" Height="327.273" Width="373.554">
     <Grid Margin="0,0,-8,1">
         <Label Content="Логин:" HorizontalAlignment="Left" Height="31" Margin="43,10,0,0" VerticalAlignment="Top" Width="194"/>
         <TextBox x:Name="textBoxLogin" HorizontalAlignment="Left" Height="32" Margin="43,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="269"/>

@@ -20,6 +20,7 @@ namespace WpfSTOshop
 
         int idCurrentClient;
 
+
         public MainWindow(IClientService service)
         {
             InitializeComponent();
